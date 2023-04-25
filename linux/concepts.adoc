@@ -1,4 +1,4 @@
-= Tittle
+= Linux technical notes
 
 == gnupg
 
