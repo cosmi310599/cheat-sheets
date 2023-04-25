@@ -1,0 +1,28 @@
+@startuml Docker swarm
+!theme reddress-lightred
+left to right direction
+
+actor User
+rectangle DockerCLI
+rectangle DockerDaemon1
+rectangle DockerDaemon2
+rectangle DockerRegistry
+rectangle SwarmManager
+rectangle SwarmWorker1
+rectangle SwarmWorker2
+rectangle SwarmWorker3
+
+User --> DockerCLI : Sends commands
+DockerCLI --> DockerDaemon1 : Executes commands
+DockerCLI --> DockerDaemon2 : Executes commands
+DockerDaemon1 --> DockerRegistry : Pulls images
+DockerDaemon2 --> DockerRegistry : Pulls images
+DockerCLI --> SwarmManager : Sends Swarm commands
+SwarmManager --> SwarmWorker1 : Sends tasks
+SwarmManager --> SwarmWorker2 : Sends tasks
+SwarmManager --> SwarmWorker3 : Sends tasks
+SwarmWorker1 --> DockerDaemon1 : Runs tasks
+SwarmWorker2 --> DockerDaemon1 : Runs tasks
+SwarmWorker3 --> DockerDaemon2 : Runs tasks
+
+@enduml

@@ -1,0 +1,67 @@
+= Docker Cheat Sheet
+
+== Basic Docker Commands
+
+[source, bash]
+----
+# Pull an image from Docker Hub
+docker pull IMAGE_NAME
+
+# Run a container
+docker run IMAGE_NAME
+
+# List running containers
+docker ps
+
+# List all containers (including stopped ones)
+docker ps -a
+
+# Stop a running container
+docker stop CONTAINER_NAME_OR_ID
+
+# Remove a container
+docker rm CONTAINER_NAME_OR_ID
+
+# Remove an image
+docker rmi IMAGE_NAME_OR_ID
+----
+
+- *docker pull IMAGE_NAME*: This command pulls an image from Docker Hub, which is a repository of images that you can use to create containers. Replace `IMAGE_NAME` with the name of the image you want to pull.
+- *docker run IMAGE_NAME*: This command creates and starts a new container using the specified image. Replace `IMAGE_NAME` with the name of the image you want to use.
+- *docker ps*: This command lists all running containers.
+- *docker ps -a*: This command lists all containers, including those that are stopped.
+- *docker stop CONTAINER_NAME_OR_ID*: This command stops a running container. Replace `CONTAINER_NAME_OR_ID` with the name or ID of the container you want to stop.
+- *docker rm CONTAINER_NAME_OR_ID*: This command removes a container. Replace `CONTAINER_NAME_OR_ID` with the name or ID of the container you want to remove.
+- *docker rmi IMAGE_NAME_OR_ID*: This command removes an image. Replace `IMAGE_NAME_OR_ID` with the name or ID of the image you want to remove.
+
+== Advanced Docker Commands
+
+[source, bash]
+----
+# Build an image from a Dockerfile
+docker build -t IMAGE_NAME PATH_TO_DOCKERFILE
+
+# Tag an image
+docker tag IMAGE_NAME NEW_IMAGE_NAME:TAG
+
+# Push an image to Docker Hub
+docker push IMAGE_NAME
+
+# Show container logs
+docker logs CONTAINER_NAME_OR_ID
+
+# Execute a command inside a running container
+docker exec -it CONTAINER_NAME_OR_ID COMMAND
+
+# Create a Docker network
+docker network create NETWORK_NAME
+
+# Connect a container to a network
+docker network connect NETWORK_NAME CONTAINER_NAME_OR_ID
+
+# Disconnect a container from a network
+docker network disconnect NETWORK_NAME CONTAINER_NAME_OR_ID
+----
+
+- *docker build -t IMAGE_NAME PATH_TO_DOCKERFILE*: This command builds an image from a Dockerfile, which is a recipe for creating a container image. Replace `IMAGE_NAME` with the name you want to give the image and `PATH_TO_DOCKERFILE` with the path to the Dockerfile.
+- *docker tag IMAGE_NAME NEW_IMAGE_NAME:TAG*: This command creates a new tag for an existing image. Replace `IMAGE_NAME` with the name of the

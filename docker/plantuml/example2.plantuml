@@ -1,0 +1,28 @@
+@startuml Docker swarm
+left to right direction
+
+actor DockerClient
+rectangle DockerEngine1
+rectangle DockerEngine2
+rectangle DockerRegistry
+rectangle DockerAPI
+rectangle DockerManager
+rectangle DockerWorker1
+rectangle DockerWorker2
+rectangle DockerWorker3
+rectangle DockerScheduler
+
+DockerClient --> DockerEngine1
+DockerClient --> DockerEngine2
+DockerEngine1 --> DockerRegistry
+DockerEngine2 --> DockerRegistry
+DockerClient --> DockerAPI
+DockerAPI --> DockerManager
+DockerAPI --> DockerWorker1
+DockerAPI --> DockerWorker2
+DockerAPI --> DockerWorker3
+DockerManager --> DockerScheduler
+DockerScheduler --> DockerWorker1
+DockerScheduler --> DockerWorker2
+DockerScheduler --> DockerWorker3
+@enduml

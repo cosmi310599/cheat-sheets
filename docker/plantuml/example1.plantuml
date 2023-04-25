@@ -1,0 +1,38 @@
+@startuml Example 1
+!define NODE_RADIUS 1.5
+!define SERVICE_RADIUS 3
+!define NETWORK_RADIUS 4
+
+!define NODE_COLOR LightBlue
+!define SERVICE_COLOR LightGreen
+!define NETWORK_COLOR LightYellow
+
+node "Swarm Manager" as manager {
+  rectangle {
+    node "Worker 1" as worker1
+    node "Worker 2" as worker2
+  }
+  node "Worker 3" as worker3
+}
+
+node "Load Balancer" as lb
+
+rectangle "Web App" as webapp {
+  rectangle {
+    node "Web 1" as web1
+    node "Web 2" as web2
+  }
+}
+
+database "Frontend" as frontend
+
+manager --> worker1
+manager --> worker2
+manager --> worker3
+lb --> frontend
+webapp --> frontend
+web1 --> frontend
+web2 --> frontend
+
+@enduml
+
