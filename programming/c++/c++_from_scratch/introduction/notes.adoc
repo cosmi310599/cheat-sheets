@@ -11,7 +11,50 @@ int main() {
 }
 ----
 
-NOTE: `return 0;` signals a smooth operation to the OS. By default, C++ returns 0 if no return at the end of `main`.
+- `Include` -> preprocessor directive; these are instructions that execute before the actual code is compiled. `#include` tells the compiler to include the content of the specified file at this point in the code.
+- `<iostream>` -> a standard C++ library that provides functionalities for input and output operations.
+- `using namespace std;` -> This is a C++ declaration used to specify that a particular "namespace" will be used in the code. A namespace is a way to encapsulate identifiers to prevent name conflicts(?).
+    - `std` -> is the standard namespace in C++ where many of the standard libraries (like iostream) define their functions and objects. By using `using namespace std;`, you avoid having to prepend `std::` before each object or function from the standard namespace. Without it, you'd have to write `std::cout` instead of `cout`.
+- `int main()` -> is the primary function of a C++ program. When you execute a C++ program, execution starts from this function. It is a mandatory entry point for the program.
+    - `int` -> signifies that the main function returns an integer value.
+
+- `cout` -> an object from the C++ standard library representing the standard output, used to display data.
+- `<<` -> insertion operator used to send multiple items to `cout`. In this case, it sends the string `Hello World!` and `endl` to `cout`.
+- `endl` -> an object from the standard library that produces a new line in the output. It ensures that the next time you write using `cout`, it starts on a new line.
+- `return 0;` -> in this context, it indicates that the program ended successfully.
+
+NOTE: `return 0;` signals smooth operation to the OS. By default, C++ returns 0 if no return is given at the end of `main`.
+
+== Namespaces
+
+A namespace is a container in C++ that allows grouping identifiers such as classes, functions, and variables under a unique name. Its primary utility is to avoid name collisions or conflicts when using different libraries that might coincidentally define a class with the same name:
+
+[source,c++]
+----
+namespace LibraryA {
+    class MyClass {
+        // definition for the class for LibraryA
+    };
+}
+
+namespace LibraryB {
+    class MyClass {
+        // definition for the class for LibraryB
+    };
+}
+----
+
+Without using namespaces, you could refer to each class by specifying its namespace:
+
+[source,c++]
+----
+LibraryA::MyClass objectA;
+LibraryB::MyClass objectB;
+----
+
+== Endl
+
+It is a stream manipulator in C++. When used with an output stream like `cout`, it produces a newline. It also has the added function of flushing the output stream, meaning any waiting data will be sent to its destination (typically the screen).
 
 = C++ Structure
 

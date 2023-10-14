@@ -1,0 +1,42 @@
+= Variables in C++
+
+Variables play a vital role in recording the state of a program at any given time, enabling the computer to suspend and resume execution seamlessly.
+
+== Location of Variables
+Variables exist in two realms:
+* In the programmer's mind, represented symbolically (e.g., "depth of snow" or "customer’s bank account").
+* In the computer's memory, referenced by numbers like `0xcafebabe`.
+
+[NOTE]
+====
+The compiler aids by bridging the gap between symbolic names in code and their numeric representation in memory.
+====
+
+== Naming Conventions
+C++ variable names:
+* Must be constructed from letters (a-z, A-Z), and numbers (0-9).
+* Are case-sensitive.
+* Must begin with a letter.
+
+Examples of valid variable names in C++:
+----
+int A;  
+int a1; 
+float alpha;  
+string abc22;
+double snowDepth;
+double amountInCustomerAccount;
+----
+However, names like "Customer’s account balance" aren't allowed due to spaces and special characters.
+
+[IMPORTANT]
+====
+Although C++ theoretically supports characters like 𝝰, many compilers and editors don't. Thus, sticking to conventional characters is advisable.
+====
+
+== Memory Allocation
+C++ must work within the confines of a computer's memory:
+* The smallest memory allocation is 1 byte (for a character variable).
+* The maximum is bound by the specific computer architecture's memory capacity.
+
+In the following lesson, we will delve into the specific ssyntax surrounding variables in C++.

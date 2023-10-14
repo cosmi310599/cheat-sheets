@@ -1,0 +1,24 @@
+= Code Explanation
+
+== #include
+The `#include` preprocessor directive inserts the contents of a specified file into the source code. `<iostream>` stands for "input-output streams" and is part of C++'s standard library. This inclusion provides functionalities for displaying and receiving text.
+
+== using namespace std
+Namespaces in C++ prevent naming conflicts by encapsulating identifiers. `using namespace std;` allows us to use names from the "std" (standard) namespace without the `std::` prefix. For example, `cout` would have to be written as `std::cout` without this declaration.
+
+== int main()
+Every C++ program starts from the `main` function, which is called by the OS. This function serves as the entry point and dictates the program's flow.
+
+== cin & cout
+`cin` and `cout` are objects representing character input and output, respectively. The `<<` symbol with `cout`, as in `cout << "Hello, World!"`, is an example of operator overloading and directs the output.
+
+== {}
+The curly braces `{ }` define a block of code, marking its beginning and end.
+
+== semicolons
+In C++, statements are terminated with semicolons, analogous to how sentences in English end with periods. Spacing and line breaks can be used freely for code readability.
+
+== return
+The `return` keyword passes a value back to the calling function. In the context of `main`, it signifies the program's end and returns control to the OS. The value `0` typically indicates successful execution.
+
+
