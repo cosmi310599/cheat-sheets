@@ -1,0 +1,23 @@
+= Hello World Program
+
+[source,c++]
+----
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello World!" << endl;
+    return 0;
+}
+----
+
+NOTE: `return 0;` signals a smooth operation to the OS. By default, C++ returns 0 if no return at the end of `main`.
+
+= C++ Structure
+
+* C++ has a specific structure and grammar.
+* Computer language grammar is simpler but stricter than spoken languages.
+* Structure helps the computer understand the program.
+* Important to understand both the structure (syntax) and the meaning (semantics) of a program.
+* Detailed analysis provides insights into the program's structure and meaning.
+
