@@ -22,3 +22,9 @@ In C++, statements are terminated with semicolons, analogous to how sentences in
 The `return` keyword passes a value back to the calling function. In the context of `main`, it signifies the program's end and returns control to the OS. The value `0` typically indicates successful execution.
 
 
+== How to compile
+
+For GCC, the typical command for compilation is:
+----
+g++ main.cpp -o main
+----
