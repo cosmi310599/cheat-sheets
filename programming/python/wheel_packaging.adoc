@@ -1,0 +1,63 @@
+= Python Wheel Packaging & Installation Cheat-Sheet
+
+== Wheel Creation:
+* Use `setuptools` to create a `.whl` file from your Python modules.
+* Define package metadata in `setup.py`.
+
+INFO: example of _setup.py_ snippet
+
+[source,python]
+----
+from setuptools import setup, find_packages
+
+setup(
+    name='package_name',  # Your package name
+    version='0.1.0',  # Your package version
+    author='Your Name',  # Your or your organization's name
+    author_email='your_email@example.com',  # Your or your organization's email
+    description='A short description of your package',  # A short description
+    long_description=open('README.md').read(),  # A longer description from a README file
+    long_description_content_type='text/markdown',  # The content type of the long description
+    url='https://github.com/your_username/package_name',  # The URL of your package's repository
+    packages=find_packages(),  # Automatically find all packages
+    install_requires=[
+        # List of dependencies required by your package
+        'requests',
+        'numpy',
+        # etc.
+    ],
+    classifiers=[
+        # Classifiers that help identify package characteristics
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+    ],
+    python_requires='>=3.6',  # Minimum required version of Python
+    entry_points={  # Entry points for executable scripts
+        'console_scripts': [
+            'script_name=package_name.module:function_main',
+            # Example: 'my_script=my_package.module:main'
+        ],
+    },
+    include_package_data=True,  # Include non-.py files specified in MANIFEST.in
+    # ... more configurations as needed
+)
+----
+
+== Installation:
+* Install the wheel using `pip install my_package.whl`.
+* Files are placed in Python's site-packages directory, e.g., `/usr/local/lib/python3.x/dist-packages/` for global installs.
+
+== Scripts and Executables:
+* Executable scripts defined in `setup.py` are installed in a directory in the user's `PATH`.
+* Typically `/usr/local/bin` for global installs or `~/.local/bin` for user installs.
+
+== Advantages:
+* Only necessary files are installed, avoiding environment clutter.
+* Dependencies are handled automatically.
+* Simplifies deployment and ensures consistent enviorments.

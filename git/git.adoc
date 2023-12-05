@@ -1,0 +1,155 @@
+= GIT CHEATSHEET
+
+== Good Practices with Forks
+
+. Clone your fork of the repository:
++
+----
+git clone [url-of-fork]
+----
+
+. Reference the original repository as `upstream`:
++
+----
+git remote add upstream [url-of-original-repo]
+----
+
+. Verify the configured remotes:
++
+----
+git remote -v
+----
+
+. Create and switch to a new branch:
++
+----
+git checkout -b [branch-name]
+----
+
+. Push the new branch to your fork:
++
+----
+git push -u origin [branch-name]
+----
+
+[NOTE]
+====
+`upstream` is used to refer to the main source from which the fork is derived.
+====
+
+[INFO]
+====
+By default, `origin` is where you cloned your repository from. If it’s a fork, then `origin` points to your fork.
+`upstream` points to the original repository that was forked. To contribute back, you push to `origin` and then create a pull request from your fork to the `upstream` repository.
+====
+
+== Keeping Fork Updated
+
+. Fetch changes from the original repository (`upstream`):
++
+----
+git fetch upstream
+git checkout main
+git merge upstream/main
+----
+
+. Push the updated changes to your fork (`origin`):
++
+----
+git push origin master
+----
+
+== Basic Workflow
+
+. Cloning and checking remotes:
++
+----
+git clone [url-of-repo]
+git remote -v
+git remote show origin
+----
+
+. Renaming and adding a new remote:
++
+----
+git remote rename origin new_name
+git remote add [new_remote_name] [new_remote_url]
+----
+
+. Creating and pushing a new branch:
++
+----
+git checkout -b develop
+git push -u [remote_name] [branch_name]
+----
+
+. Setting the upstream branch:
++
+----
+git branch --set-upstream-to=[remote_name]/[branch]
+----
+
+== Deleting Branches
+
+. Locally:
++
+----
+git branch -d [local_branch_name]
+----
+
+. On the remote:
++
+----
+git push origin --delete [remote_branch_name]
+----
+
+== Renaming Remote
+
+. Change the name of the `origin` remote:
++
+----
+git remote rename origin [new_name]
+----
+
+== Data Synchronization with Merge and Pull
+
+. `merge` vs. `rebase`:
++
+* `merge`: Combines changes from one branch into another. Git creates a new merge commit if there are divergences.
+* `rebase`: Reapplies commits on top of another branch, as if 'rewriting history'.
+
+== More Concepts
+
+. Bare Repository:
++
+A bare repository is like a library without a reading area. It only stores the books (here, the Git commit history), but you can't "read" (modify the working files) directly in it. It's useful for complete repository transfers, such as when using `git push --mirror` to duplicate or restore a repository on another server.
+
+. Cloning with `--mirror`:
++
+Cloning with `--mirror` copies all branches, tags, and other references, including pull request references. However, these latter are GitHub metadata and are not required for project development. They are ignored when pushing to the remote because they only have relevance within the GitHub ecosystem.
+
+. Ignoring Pull Request References:
++
+When restoring or moving your repository, you can skip pull request references with:
++
+----
+git push --mirror --prune refs/pull
+----
++
+This ensures that only the code and commit history are transferred, discarding references not needed for active development.
+
+== Simplifying `git commit --amend`
+
+. The `git commit --amend` command allows you to modify the most recent commit.
++
+Imagine you just committed your changes, and you realized you forgot to include a small update or you made a typo in the commit message. Instead of creating a new commit for such a small change, you can use `git commit --amend` to fix it.
+
+. To change the last commit:
++
+----
+git add [file-you-forgot]
+git commit --amend
+----
++
+This will open your editor, allowing you to modify the commit message of the most recent commit. After saving and closing the editor, the commit will include your additional changes and the updated message.
+
